@@ -4,7 +4,7 @@ def call(String repoUrl){
        stages {
            stage("Tools initialization") {
                steps {
-                   sh 'ls cpu'
+                   sh 'echo "we are practicing"'
                    sh 'java -version'
                }
            }
