@@ -1,23 +1,24 @@
-def uber(String repoUrl){
-    pipeline{
-        agent any
-        stages{
-            stage('1-build'){
+def uber('String reposUri'){
+  pipeline{
+    agent any
+    stages{
+        stage('1-build'){
                 steps{
-                    sh 'free -g'
+                    sh 'logname'
                 }
-            }
-            stage("Checkout Code") {
-                steps {
-                   git branch: 'main',
-                          url: "${repoUrl}"
-               }
-           }
-            sgtage('2-closing'){
+        }
+        stage('2-Checkout code'){
                 steps{
-                    echo "we keep demoing"
-           }  
+                    git branch: 'main'
+                    url: "{$repoUrl}"
         }
     }
+        stage('3-closing'){
+                steps{
+            echo "closing"
+        }
+    }
+        }
+        }
 }
-}
+           
