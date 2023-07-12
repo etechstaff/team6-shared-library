@@ -1,24 +1,30 @@
-def uber('String repoUri'){
-  pipeline{
-    agent any
-    stages{
-        stage('1-build'){
-                steps{
-                    sh 'logname'
-                }
-        }
-        stage('2-Checkout code'){
-                steps{
-                    git branch: 'main'
-                    url: "{$repoUrl}"
-        }
-    }
-        stage('3-closing'){
-                steps{
-            echo "closing"
-        }
-    }
-        }
-        }
+def call(String repoUrl){
+ pipeline {
+       agent any
+       stages {
+           stage("Tools initialization") {
+               steps {
+                   sh 'echo "we are practicing"'
+                   sh 'java -version'
+               }
+           }
+           stage("Checkout Code") {
+               steps {
+                   git branch: 'main',
+                          url: "${repoUrl}"
+               }
+           }
+           stage("to-test-maven") {
+               steps {
+                   sh 'df -h'
+               }
+           }
+           stage('4-closing'){
+               steps{
+                echo "close"
+            }
+           }
+       }
+}   
 }
            
