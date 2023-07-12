@@ -7,17 +7,17 @@ def uber(String repoUrl){
                     sh 'free -g'
                 }
             }
-        stage("Checkout Code") {
+            stage("Checkout Code") {
                 steps {
                    git branch: 'main',
                           url: "${repoUrl}"
                }
            }
-           sgtage('2-closing'){
-            steps{
-                echo "god is helping us"
-            }
+            sgtage('2-closing'){
+                steps{
+                    echo "we keep demoing"
            }  
         }
     }
+}
 }
